@@ -30,11 +30,15 @@ const BottomSection = styled.View`
 	padding: 25px;
 	justify-content:flex-end;
 `;
+import { RootStackParamList } from "../navigators/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+type Props = StackScreenProps<RootStackParamList,"Welcome">;
+
 //import image
 import background_v1 from "../assets/bgs/background_v1.jpg";
 import RegularButton from "../component/Buttons/RegularButton";
 
-const Welcome: FunctionComponent = () => {
+const Welcome: FunctionComponent<Props> = ({navigation}) => {
 	return (
 		<>
 			<StatusBar style="light" />
@@ -49,7 +53,7 @@ const Welcome: FunctionComponent = () => {
 					<SmallText textStyles={{ width: "70%", marginBottom: 25 }}>
 						Best payment method, connects your money to your friends,
 					</SmallText>
-					<RegularButton onPress={()=>{}}>
+					<RegularButton onPress={()=>{navigation.navigate("Home")}}>
 						Get Started
 					</RegularButton>
 				</BottomSection>
